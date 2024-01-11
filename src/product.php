@@ -10,7 +10,7 @@
 <hr>
 <?php
 echo '<table>';
-echo '<tr><th>Shoes_ID</th><th>Shoes_name</th><th>Brand</th></tr>';
+echo '<tr><th>shoes_id</th><th>shoes_name</th><th>brand</th></tr>';
 $pdo=new PDO($connect, USER, PASS);
 if (isset($_POST['keyword'])) {
     $sql=$pdo->prepare('select * from shoes where shoes_name like ? ');
@@ -19,7 +19,7 @@ if (isset($_POST['keyword'])) {
     $sql=$pdo->query('select * from shoes');
 }
 foreach ($sql as $row) {
-    $id=$row['id'];
+    $shoes_id=$row['shoes_id'];
     echo '<tr>';
     echo '<td>', $shoes_id, '</td>';
     echo '<td>';
