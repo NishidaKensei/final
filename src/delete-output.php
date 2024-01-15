@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert Result</title>
+    <title>Delete Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -33,23 +34,24 @@
             padding: 10px;
         }
 
-        .result-container {
-            padding: 20px;
+        .message-container {
             margin: 20px auto;
+            padding: 20px;
             max-width: 400px;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
         }
 
         .success-message {
-            background-color: #28a745; /* Green color for success */
-            color: #fff;
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
         }
 
         .failure-message {
-            background-color: #dc3545; /* Red color for failure */
-            color: #fff;
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
         }
     </style>
 </head>
@@ -57,11 +59,12 @@
 
 <?php
 $pdo = new PDO($connect, USER, PASS);
-$sql = $pdo->prepare('insert into shoes values(?, ?, ?)');
-if ($sql->execute([$_REQUEST['shoes_id'], $_REQUEST['shoes_name'], $_REQUEST['brand']])) {
-    echo '<div class="result-container success-message">SUCCESS!!</div>';
+$sql = $pdo->prepare('DELETE FROM shoes WHERE shoes_id=?');
+
+if ($sql->execute([$_REQUEST['shoes_id']])) {
+    echo '<div class="message-container success-message">SUCCESS!</div>';
 } else {
-    echo '<div class="result-container failure-message">FAILURE...</div>';
+    echo '<div class="message-container failure-message">FAILURE...</div>';
 }
 ?>
 

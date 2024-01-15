@@ -8,7 +8,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>商品検索</title>
+    <title>Shoes List</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -82,39 +83,40 @@
         a:hover {
             text-decoration: underline;
         }
-    </style>
+</style>
 </head>
 <body>
 
-<form action="product.php" method="post">
-    <label for="keyword">商品検索</label>
-    <input type="text" id="keyword" name="keyword">
-    <input type="submit" value="検索">
-</form>
+<!-- Main Content -->
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Shoes ID</th>
+            <th scope="col">Shoes Name</th>
+            <th scope="col">Brand</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php
+        // Connect to the database
+        $pdo = new PDO($connect, USER, PASS);
 
-<hr>
+        // Fetch and display data from the 'shoes' table
+        foreach ($pdo->query('SELECT * FROM shoes') as $row) {
+            echo '<tr>';
+            echo '<td>', $row['shoes_id'], '</td>';
+            echo '<td>', $row['shoes_name'], '</td>';
+            echo '<td>', $row['brand'], '</td>';
+            echo '<td><a href="delete-output.php?shoes_id=', $row['shoes_id'], '">Delete</a></td>';
+            echo '</tr>';
+            echo "\n";
+        }
+        ?>
+    </tbody>
+</table>
 
-<?php
-echo '<table>';
-echo '<tr><th>商品ID</th><th>商品名</th><th>ブランド</th></tr>';
-$pdo = new PDO($connect, USER, PASS);
-if (isset($_POST['keyword'])) {
-    $sql = $pdo->prepare('SELECT * FROM shoes WHERE shoes_name LIKE ?');
-    $sql->execute(['%' . $_POST['keyword'] . '%']);
-} else {
-    $sql = $pdo->query('SELECT * FROM shoes');
-}
-foreach ($sql as $row) {
-    $shoes_id = $row['shoes_id'];
-    echo '<tr>';
-    echo '<td>', $shoes_id, '</td>';
-    echo '<td><a href="detail.php?shoes_id=', $shoes_id, '">', $row['shoes_name'], '</a></td>';
-    echo '<td>', $row['brand'], '</td>';
-    echo '</tr>'; 
-}
-echo '</table>';
-?>
-
+<!-- Footer Section -->
 <?php require './footer.php'; ?>
 
 </body>
