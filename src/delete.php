@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Shoes List</title>
+    <title>商品削除</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -23,6 +23,11 @@
             color: #fff;
             padding: 10px;
             text-align: center;
+        }
+
+        nav {
+            background-color: #adb5bd;
+            padding: 10px;
         }
 
         form {
@@ -91,18 +96,16 @@
 <table class="table">
     <thead>
         <tr>
-            <th scope="col">Shoes ID</th>
-            <th scope="col">Shoes Name</th>
-            <th scope="col">Brand</th>
+            <th scope="col">商品ID</th>
+            <th scope="col">商品名</th>
+            <th scope="col">ブランド</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
     <tbody>
         <?php
-        // Connect to the database
         $pdo = new PDO($connect, USER, PASS);
 
-        // Fetch and display data from the 'shoes' table
         foreach ($pdo->query('SELECT * FROM shoes') as $row) {
             echo '<tr>';
             echo '<td>', $row['shoes_id'], '</td>';
@@ -116,7 +119,6 @@
     </tbody>
 </table>
 
-<!-- Footer Section -->
 <?php require './footer.php'; ?>
 
 </body>

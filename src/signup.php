@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert Shoes Information</title>
+    <title>商品登録</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -34,7 +34,7 @@
         }
 
         form {
-            background-color: #343a40; /* Dark background color */
+            background-color: #343a40;
             color: #fff;
             padding: 20px;
             margin: 20px auto;
@@ -81,16 +81,16 @@
 
 <form action="signup-output.php" method="post">
     <p>Insert Shoes Information</p>
-    <label for="shoes_id">Shoes ID</label>
+    <label for="shoes_id">商品ID</label>
     <input type="text" id="shoes_id" name="shoes_id">
 
-    <label for="shoes_name">Shoes Name</label>
+    <label for="shoes_name">商品名</label>
     <input type="text" id="shoes_name" name="shoes_name">
 
-    <label for="brand">Brand</label>
+    <label for="brand">ブランド</label>
     <input type="text" id="brand" name="brand">
 
-    <input type="submit" value="Insert">
+    <input type="submit" value="登録">
 </form>
 
 <?php require './footer.php'; ?>

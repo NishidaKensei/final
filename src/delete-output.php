@@ -62,9 +62,9 @@ $pdo = new PDO($connect, USER, PASS);
 $sql = $pdo->prepare('DELETE FROM shoes WHERE shoes_id=?');
 
 if ($sql->execute([$_REQUEST['shoes_id']])) {
-    echo '<div class="message-container success-message">SUCCESS!</div>';
+    echo '<div class="message-container success-message">削除完了!</div>';
 } else {
-    echo '<div class="message-container failure-message">FAILURE...</div>';
+    echo '<div class="message-container failure-message">削除できませんでした...</div>';
 }
 ?>
 

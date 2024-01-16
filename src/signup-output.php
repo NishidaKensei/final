@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Insert Result</title>
+    <title>商品登録</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -43,12 +43,12 @@
         }
 
         .success-message {
-            background-color: #28a745; /* Green color for success */
+            background-color: #28a745;
             color: #fff;
         }
 
         .failure-message {
-            background-color: #dc3545; /* Red color for failure */
+            background-color: #dc3545;
             color: #fff;
         }
     </style>
@@ -59,9 +59,9 @@
 $pdo = new PDO($connect, USER, PASS);
 $sql = $pdo->prepare('insert into shoes values(?, ?, ?)');
 if ($sql->execute([$_REQUEST['shoes_id'], $_REQUEST['shoes_name'], $_REQUEST['brand']])) {
-    echo '<div class="result-container success-message">SUCCESS!!</div>';
+    echo '<div class="result-container success-message">登録完了!!</div>';
 } else {
-    echo '<div class="result-container failure-message">FAILURE...</div>';
+    echo '<div class="result-container failure-message">登録できませんでした...</div>';
 }
 ?>
 

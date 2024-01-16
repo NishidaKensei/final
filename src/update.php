@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Shoes Information</title>
+    <title>商品更新</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -35,7 +35,7 @@
         }
 
         form {
-            background-color: #343a40; /* Dark background color */
+            background-color: #343a40;
             color: #fff;
             padding: 20px;
             margin: 20px auto;
@@ -85,15 +85,15 @@ $pdo = new PDO($connect, USER, PASS);
 foreach ($pdo->query('select * from shoes') as $row) {
     echo '<form class="update-form" action="update-output.php" method="post">';
     echo '<div class="form-group">';
-    echo '<label for="shoes_id">Shoes ID</label>';
+    echo '<label for="shoes_id">商品ID</label>';
     echo '<input type="text" class="form-control" name="shoes_id" value="', $row['shoes_id'], '">';
     echo '</div>';
     echo '<div class="form-group">';
-    echo '<label for="shoes_name">Shoes Name</label>';
+    echo '<label for="shoes_name">商品名</label>';
     echo '<input type="text" class="form-control" name="shoes_name" value="', $row['shoes_name'], '">';
     echo '</div>';
     echo '<div class="form-group">';
-    echo '<label for="brand">Brand</label>';
+    echo '<label for="brand">ブランド</label>';
     echo '<input type="text" class="form-control" name="brand" value="', $row['brand'], '">';
     echo '</div>';
     echo '<button type="submit" class="btn btn-primary submit-btn">更新</button>';

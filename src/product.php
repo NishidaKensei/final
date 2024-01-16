@@ -24,13 +24,19 @@
             text-align: center;
         }
 
+        nav {
+            background-color: #adb5bd;
+            padding: 10px;
+        }
+
         form {
             background-color: #fff;
             padding: 20px;
             margin: 20px auto;
             max-width: 400px;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
         }
 
         input[type="text"] {
@@ -87,7 +93,7 @@
 <body>
 
 <form action="product.php" method="post">
-    <label for="keyword">商品検索</label>
+    <label for="keyword">　</label>
     <input type="text" id="keyword" name="keyword">
     <input type="submit" value="検索">
 </form>

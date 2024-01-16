@@ -8,7 +8,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Shoes Information</title>
+    <title>商品更新</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <style>
         body {
@@ -106,9 +106,9 @@ if (empty($_REQUEST['shoes_id']) || empty($_REQUEST['shoes_name']) || empty($_RE
         $sql->bindParam(3, $shoes_id);
 
         if ($sql->execute()) {
-            echo '<div class="message-container success-message">Update Successful!</div>';
+            echo '<div class="message-container success-message">更新完了!</div>';
         } else {
-            echo '<div class="message-container failure-message">Update Failed...</div>';
+            echo '<div class="message-container failure-message">更新できませんでした...</div>';
         }
     } else {
         echo '<div class="message-container failure-message">The specified shoes_id does not exist.</div>';
