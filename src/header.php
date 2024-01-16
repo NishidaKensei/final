@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PHP Final Programs</title>
+    <title>Shoes Information</title>
     <style>
         body {
             margin: 0;
             padding: 0;
             font-family: Arial, sans-serif;
             background-color: #fff;
+            font-size: 16px;
         }
 
         header {
@@ -19,9 +20,10 @@
             text-align: center;
         }
 
-        nav {
+        h1 {
+            margin: 0; 
+            font-size: 24px; 
         }
-
 
         .pink-accent {
             color: #ff69b4;
@@ -31,9 +33,8 @@
 <body>
 
     <header>
-        <h1>PHP Final Programs</h1>
+        <h1>Shoes Information</h1>
     </header>
-
 
 </body>
 </html>
